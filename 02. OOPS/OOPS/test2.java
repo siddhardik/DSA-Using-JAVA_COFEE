@@ -14,7 +14,7 @@ class Test
         System.out.println("a=" + a + " b=" + b); 
     } 
 }
-public class ex2{
+ class test2{
     public static void main(String[] args) 
     { 
         Test object = new Test();
@@ -22,3 +22,9 @@ public class ex2{
         object.display(); 
     } 
 } 
+
+// Ans   a=0 b=10
+
+
+
+

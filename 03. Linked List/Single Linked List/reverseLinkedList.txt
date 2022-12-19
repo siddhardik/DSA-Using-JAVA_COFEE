@@ -1,0 +1,13 @@
+public static LinkedListNode<Integer> reverseList(LinkedListNode<Integer> temp){  
+       LinkedListNode<Integer> current = temp;  
+        LinkedListNode<Integer> prevNode = null, nextNode = null;  
+          
+       //Swap the previous and next nodes of each node to reverse the direction of the list  
+        while(current != null){  
+            nextNode = current.next;  
+            current.next = prevNode;  
+            prevNode = current;  
+            current = nextNode;  
+        }  
+        return prevNode;  
+    }  

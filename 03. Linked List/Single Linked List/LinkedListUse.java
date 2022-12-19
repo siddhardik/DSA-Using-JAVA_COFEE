@@ -3,10 +3,10 @@ public class LinkedListUse {
     // Print the linked list
     public static void PrintLinkedList(Node<Integer> node) {
         while (node.next!= null) {
-            System.out.print(node.data + "->");
+            System.out.print(node.data + ".");
             node = node.next;
         }
-        System.out.println(node.data + "->null");
+        System.out.println(node.data + ".null");
 
     
     }
@@ -53,6 +53,8 @@ public class LinkedListUse {
       return head;
     }
 
+    // Delete Node
+
     public static Node<Integer> deleteNode(Node<Integer> head, int pos) {
 		// Write your code here.
 		if(head==null )
@@ -76,6 +78,7 @@ public class LinkedListUse {
         return head;
 	}
 
+// Create A Linked List
 
     public static Node<Integer> CreateLinkedList(){
         Scanner sc = new Scanner(System.in);
@@ -83,8 +86,8 @@ public class LinkedListUse {
         int n=sc.nextInt();
         System.out.println("Enter the value of the node");
         int value=sc.nextInt();
-        Node<Integer> first=new Node<Integer>(value);
-        Node<Integer> nextOne= first;
+        Node<Integer> head1=new Node<Integer>(value);
+        Node<Integer> nextOne= head1;
         
         for(int i=1;i<n;i++){
             System.out.println("Enter the value of the node");
@@ -95,8 +98,27 @@ public class LinkedListUse {
             nextOne=nextOne.next;
 
         }
-          return first;
+          return head1;
 }
+
+// Find A Node
+
+public static int findNode(Node<Integer> head, int n) {
+		
+    Node<Integer> temp =head;
+    int count =0;
+    int index=-1;
+    while(temp!=null){
+        if(temp.data== n){
+            index=count;
+            break;
+        }
+        count++;
+        temp=temp.next;
+    }
+            return index;
+}
+
     public static void main(String[] args) {
        // Node n1=new Node(23); use normal Class
        

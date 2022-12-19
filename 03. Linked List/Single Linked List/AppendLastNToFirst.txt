@@ -1,0 +1,28 @@
+public static LinkedListNode<Integer> appendLastNTohead1(LinkedListNode<Integer> head, int n) {
+		//Your code goes here
+		if (head == null || n == 0){ return head;}
+		    LinkedListNode<Integer>temp1=head;
+		LinkedListNode<Integer>temp2=head;
+		int length=0;
+		 LinkedListNode<Integer> len =head;
+		 while(len!=null){
+			 length++;
+			 len=len.next;
+		 }
+
+		int i=0;
+		while(i<length-n-1)
+		{
+			temp1=temp1.next;
+			i++;
+		}
+		head=temp1.next;
+		temp1.next=null;
+		LinkedListNode<Integer>tempHead=head;
+		while(tempHead.next!=null)
+		{
+			tempHead=tempHead.next;
+		}
+		tempHead.next=temp2;
+		return head;
+	}

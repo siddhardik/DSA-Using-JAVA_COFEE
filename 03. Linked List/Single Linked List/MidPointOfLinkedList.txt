@@ -1,0 +1,32 @@
+    public static LinkedListNode<Integer> midPoint(LinkedListNode<Integer> head) {
+        //Your code goes here
+         if(head==null){
+             return head;
+         }
+         LinkedListNode<Integer> slow=head;
+         LinkedListNode<Integer> fast=head;
+         
+        while( fast.next!=null){
+             //To Handle Even Number of Element Cases
+             if(fast.next.next==null){
+                 return slow;   
+             }
+
+             slow=slow.next;
+             fast=fast.next.next;
+         }
+
+         return slow;
+    }
+
+
+    // Another Solution
+
+     public static Node<Integer> midpoint(Node<Integer> head){
+    Node<Integer> slow= head, fast= head;
+    while(fast.next!=null && fast.next.next != null){
+      slow= slow.next;
+      fast= fast.next.next;
+    }
+    return slow;
+  }

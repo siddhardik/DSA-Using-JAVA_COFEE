@@ -1,0 +1,15 @@
+	public static int findNode(LinkedListNode<Integer> head, int n) {
+		
+		LinkedListNode<Integer> temp =head;
+		int count =0;
+		int index=-1;
+		while(temp!=null){
+			if(temp.data== n){
+				index=count;
+				break;
+			}
+			count++;
+			temp=temp.next;
+		}
+				return index;
+	}

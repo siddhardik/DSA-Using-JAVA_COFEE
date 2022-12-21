@@ -1,0 +1,40 @@
+Stack<char> st;
+int i=0;
+boolean flag=false;    
+   while(expression.charAt(i)!='\0')
+   {
+       if(expression.charAt(i)!=')')
+           st.push(expression.charAt(i));
+        
+       else
+           
+       {
+           
+        while(st.top()!='(')
+        {
+            st.pop();
+            flag=true;
+            if(st.isEmpty())
+            break;    
+            
+        }       
+       
+           if(st.isEmpty())
+               continue;
+           
+           if(flag)
+           {
+               st.pop();
+               flag=false;
+               
+           }
+           
+           else
+           {
+               return true;
+           }   
+       }
+       
+   i++;
+   }
+return false;

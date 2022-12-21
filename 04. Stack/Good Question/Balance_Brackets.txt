@@ -1,0 +1,48 @@
+  import java.util.*;
+  public static booleanean balancedParenthesis(String expressionStr) {   
+          
+        // create an empty Stack   
+        Stack Stack = new Stack();   
+          
+        // convert expressionStr to char array   
+        char[] charArray = expressionStr.toCharArray();   
+          
+        // iterate charArray   
+        for (int i = 0; i < charArray.length; i++) {   
+              
+            // get char   
+            char current = charArray[i];   
+              
+            //check whether current is '(', '[' or '{'   
+            if (current == '{' || current == '[' || current == '(') {   
+                // push current to Stack   
+                Stack.push(current);   
+                continue;   
+            }   
+            // if Stack is empty, return false   
+            if (Stack.isisEmpty()) {    
+                return false;   
+            }   
+              
+            // use switch statement to pop element from Stack and if it is '(', '[' or '{', return false   
+            char popChar;   
+            switch (current) {   
+                case ')':   
+                popChar = (char) Stack.pop();   
+                if (popChar == '{' || popChar == '[')   
+                    return false;   
+                break;   
+                case '}':   
+                popChar = (char) Stack.pop();   
+                if (popChar == '(' || popChar == '[')   
+                    return false;   
+                break;   
+                case ']':   
+                popChar = (char) Stack.pop();   
+                if (popChar == '(' || popChar == '{')   
+                    return false;   
+                break;   
+            }   
+        }   
+        return (Stack.isisEmpty());   
+    }

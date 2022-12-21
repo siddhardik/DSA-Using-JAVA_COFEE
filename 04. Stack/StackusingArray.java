@@ -86,6 +86,10 @@ class StackUArray{
   
     // pushMust If Space is not enough , it will increase the space of stack
     public void pushMust(int x){
+        if(totalFreeSpace()!=0){
+            push(x);
+            return;
+        }
         
         if(topIndex == data.length-1){
             // int temp[] = new int[data.length];

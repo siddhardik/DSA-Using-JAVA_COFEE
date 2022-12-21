@@ -1,0 +1,10 @@
+Abstract Data type (ADT) is a type (or class) for objects whose behavior is defined by a set of 
+values and operations. The definition of ADT only mentions what procedures are to be performed but not 
+how these operations will be implemented.
+The stack is ADT. Abstract for users
+
+In the case of Linked lists And Array, We focus on how data are stored.
+But in the case of the stack, we focus on the features of the stack, not the storing idea.
+
+If generic array creation were legal, then compiler-generated casts would correct the program at
+ compile time but it can fail at runtime, which violates the core fundamental system of generic types.

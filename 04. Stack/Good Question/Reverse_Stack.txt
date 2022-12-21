@@ -1,0 +1,30 @@
+import java.util.Stack;
+public class Solution {
+
+	public static void reverseStack(Stack<Integer> expression, Stack<Integer> extra) {
+		//Your code goes here
+		if(expression.size()<=1)
+    return;
+    
+    int x=expression.pop();
+    
+    
+    reverseStack(expression,extra);
+        
+     while(!expression.isEmpty())
+        {
+            int temp=expression.pop();
+            
+            extra.push(temp);
+        }
+    
+       expression.push(x);
+        
+      while(!extra.isEmpty())
+        {
+           int temp=extra.pop();
+            expression.push(temp);
+           
+        }
+	}
+}

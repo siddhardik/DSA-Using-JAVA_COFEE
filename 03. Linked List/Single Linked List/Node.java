@@ -25,4 +25,6 @@ public class Node<T>{
         next=null;  // Or this.next=null;  by default any ref var is null
 
     }
+
+    
 }

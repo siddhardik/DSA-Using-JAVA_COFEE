@@ -1,4 +1,4 @@
-// Queue using Array  ==== QuUA
+// Queue using Array  ==== QuUA  , Use Dynamically Using Push Must
 import java.util.Arrays;
 
 class QuUA{
@@ -37,7 +37,7 @@ class QuUA{
     }
 
     // Insertion
-    public void enqueue(int x){
+    public void enqueue(int x){   // Make It Private Funtion , And Only Provide enqueMust Function to user
         data[++rear]=x;
         if(front==-1){
           front =0;  // Front Will be updated only once

@@ -1,0 +1,40 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+public class Solution {
+
+	public static Queue<Integer> reverseKElements(Queue<Integer> input, int k) {
+		//Your code goes here
+		if(input.isEmpty()== true || k>input.size()){
+			return input;
+		}
+
+		if(k<=0){
+			return input;
+		}
+
+			Stack<Integer> s=new Stack<>();
+
+			// Push The First K Elemnet into Stcak
+
+			for(int i=0;i<k;i++){
+				s.push(input.poll());
+			}
+
+			// Enqueue The Content of Stack back into the queue
+
+			while(!s.isEmpty()){
+				input.add(s.pop());  
+
+			}
+
+			// Remove the reamining Element and enqueue them the end of the Queue
+
+			for(int i=0;i<input.size() -k ; i++){
+				input.add(input.poll());
+			}
+
+       return input;
+	}
+
+}

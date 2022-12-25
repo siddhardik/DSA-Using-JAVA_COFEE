@@ -1,0 +1,25 @@
+Tree Like Your Computer File System.
+
+There is a root node And Every node has one  or more or Zero Child Node .
+
+Tree has a beautiful Recursive Structure.
+
+A tree consists of some or zero SubTrees.
+
+A node is called as binary tree if only it has at max two child nodes. (0/1/2) . Not More than 2.
+
+Otherwise it is called generic Tree.
+ 
+ Generic trees are a collection of nodes where each node is a data structure that consists 
+ of records and a list of references to its children(duplicate references are not allowed).
+  Unlike the linked list, each node stores the address of multiple nodes.
+
+
+  A binary tree is a rooted tree that is also an ordered tree (a.k.a. plane tree) in which every node
+   has at most two children. 
+
+
+
+   Terminologies =
+
+ ancestor - Path From root to this/leaf node .. All nodes are called as Ancestor of this/leaf node.

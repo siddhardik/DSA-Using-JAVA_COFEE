@@ -26,3 +26,7 @@ Otherwise it is called generic Tree.
 
 
 Depth is a property of every node that means how much  far a node from root node
+
+Balanced Tree 
+| heightOf Right Sub Tree - Height of Left Sub Tree | <=1   for every Node
+Then We call it Balanced tree

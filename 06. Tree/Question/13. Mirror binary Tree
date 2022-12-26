@@ -1,0 +1,25 @@
+public class Solution {
+
+	public static void mirrorBinaryTree(BinaryTreeNode<Integer> root){
+		// Base Case
+		if(root.left==null && root.right==null){
+			return;
+		}
+		
+		BinaryTreeNode<Integer> temp=root.left;
+		root.left=root.right;
+		root.right=temp;
+        
+		if(root.left!=null){
+
+		mirrorBinaryTree(root.left);
+		}
+		if(root.right!=null){
+
+		mirrorBinaryTree(root.right);
+		}
+
+
+	}
+	
+}

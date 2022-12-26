@@ -57,6 +57,8 @@ public class Tree_Implementation{
 
         printTree(root);
         System.out.println("Total Number of Nodes : "+countNodes(root));
+        System.out.println("Total Number of Leaf Nodes : "+countLeafNodes(root));
+
         
     }
 
@@ -106,6 +108,25 @@ public class Tree_Implementation{
             }
             return 1+countNodes(root.left) + countNodes(root.right);
     }
+
+    // Count Leaf Nodes In An Binary Tree
+
+    public static int countLeafNodes(Tree<Integer> root){
+        if(root==null){
+            return 0;
+        }
+        
+
+        if(root.left==null && root.right==null){
+
+            return 1;
+        }
+        return countLeafNodes(root.left) + countLeafNodes(root.right);
+
+    }
+      
+
+
 }
 
 

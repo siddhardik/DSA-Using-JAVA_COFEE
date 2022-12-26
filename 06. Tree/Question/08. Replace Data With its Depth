@@ -1,0 +1,21 @@
+public class Solution {
+
+	public static void done(BinaryTreeNode<Integer> root ,int k){
+		if(root==null){
+			return;
+		}
+            root.data=k;
+			done(root.left,k+1);
+			done(root.right,k+1);
+			
+			
+	}
+
+	public static void changeToDepthTree(BinaryTreeNode<Integer> root) {
+	
+		int k=0;
+	    done(root,k);
+		
+	}
+
+}

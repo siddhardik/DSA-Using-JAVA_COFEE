@@ -23,3 +23,6 @@ Otherwise it is called generic Tree.
    Terminologies =
 
  ancestor - Path From root to this/leaf node .. All nodes are called as Ancestor of this/leaf node.
+
+
+Depth is a property of every node that means how much  far a node from root node

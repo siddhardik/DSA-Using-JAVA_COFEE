@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
 
 class Tree<T>{
     T data;
@@ -52,12 +54,16 @@ public class Tree_Implementation{
         // t.right.left.left=new Tree<Integer>(8);
         // t.insertAtLeft(t, 45);
         // t.insertAtRight(t, 78);
-        Tree<Integer> root=takeInput(0);
+        // Tree<Integer> root=takeInput(0);
 
 
+        // printTree(root);
+        // System.out.println("Total Number of Nodes : "+countNodes(root));
+        // System.out.println("Total Number of Leaf Nodes : "+countLeafNodes(root));
+        Tree<Integer> root=takeinputLevelWise();
         printTree(root);
-        System.out.println("Total Number of Nodes : "+countNodes(root));
-        System.out.println("Total Number of Leaf Nodes : "+countLeafNodes(root));
+
+
 
         
     }
@@ -84,6 +90,43 @@ public class Tree_Implementation{
        
         
     }
+
+    // take Input LevelWise
+    public static Tree<Integer> takeinputLevelWise(){
+        Scanner s= new Scanner(System.in);
+        int rootData= s.nextInt();
+
+        if(rootData==-1) return null;
+
+        Tree<Integer> root= new Tree<Integer>(rootData);
+        Queue<Tree<Integer>> pendingChildren= new LinkedList<Tree<Integer>>();
+        pendingChildren.add(root);
+
+        while(!pendingChildren.isEmpty()){
+            Tree<Integer> front= pendingChildren.poll();
+            System.out.println("Enter left child of "+ front.data);
+            int left= s.nextInt();
+            if(left!=-1){
+                    Tree<Integer> leftChild= new Tree<Integer>(left);
+                    front.left= leftChild;
+                    pendingChildren.add(leftChild);
+            }
+
+            System.out.println("Enter right child of "+ front.data);
+            int right= s.nextInt();
+            if(right!=-1){
+                    Tree<Integer> rightChild= new Tree<Integer>(right);
+                    front.right= rightChild;
+                    pendingChildren.add(rightChild);
+            }
+        }
+        return root;
+    }
+
+    
+
+
+
 
 
 

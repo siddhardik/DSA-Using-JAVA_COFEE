@@ -1,0 +1,60 @@
+public class Solution {
+
+	public static BinaryTreeNode<Integer> buildTreeHelper(int[] postOrder,int[] inOrder,int sip,int eip,int sii,int eii){
+		if(sip>eip){
+			return null;
+		}
+		int currVal=postOrder[eip];
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(currVal);
+		// FInd Postion of currVal in Inorder
+		int idx=-1;
+		for(int i=sii;i<=eii;i++){
+			if(inOrder[i]==currVal){
+				idx=i;
+				break;
+			}
+		}
+
+		if(idx==-1){
+			System.out.println("Vulval Array Dis kno bolto");
+		}
+
+		// Length Of LeftSubtree In Inorder
+		int lolstIO=idx-sii;
+
+		// For Left Subtree
+          
+		  int sipl=sip;
+		  int eipl=sipl+lolstIO-1;  // 0 to 2  total 3 length    0 to  0+3-1 
+		  int siil=sii;
+		  int eiil=idx-1;
+
+		// For Right SubTree
+		  int sipr=eipl+1;
+		  int eipr=eip-1;
+		  int siir=idx+1;
+		  int eiir=eii;
+
+		root.left=buildTreeHelper(postOrder,inOrder,sipl,eipl,siil,eiil);
+		root.right=buildTreeHelper(postOrder,inOrder,sipr,eipr,siir,eiir);
+		return root;
+	}
+
+	public static BinaryTreeNode<Integer> buildTree(int[] postOrder, int[] inOrder) {
+		// Start Index Of Post Order = sip
+		// End Index Of  Post Order  = eip
+		// Start index of inorder =sii
+		// End index of inorder =eii
+
+		int sip=0;
+		int eip=postOrder.length -1;
+		int sii =0;
+		int eii=inOrder.length-1;
+
+		BinaryTreeNode<Integer> root =buildTreeHelper(postOrder,inOrder,sip,eip,sii,eii);
+
+	   return root;
+
+	}
+
+}

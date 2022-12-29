@@ -1,0 +1,44 @@
+
+ import java.lang.Math ;
+
+public class Solution {
+
+	public static Pair<Integer, Integer> getMinAndMax(BinaryTreeNode<Integer> root) {
+		//Your code goes here
+        
+
+		Pair <Integer,Integer> p=new Pair<>(Integer.MAX_VALUE,Integer.MIN_VALUE);  // First Min, Second Max
+		if(root==null){
+			return p ;
+		}
+
+		Pair <Integer,Integer> pLeft = getMinAndMax(root.left);
+		Pair <Integer,Integer> pRight=getMinAndMax (root.right);
+
+		
+
+		int min= Math.min(root.data, Math.min(pLeft.minimum,pRight.minimum));
+		int max=Math.max(root.data, Math.max(pLeft.maximum ,pRight.maximum));
+
+      p=new Pair<>(min,max); 
+	  return p;
+
+	}
+	
+}
+/*
+
+	Representation of the Pair Class
+
+	class Pair<T, U> {
+		T minimum;
+		U maximum;
+
+		public Pair(T minimum, U maximum) {
+			this.minimum = minimum;
+			this.maximum = maximum;
+		}
+
+	}
+
+*/

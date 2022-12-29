@@ -1,0 +1,33 @@
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class Solution {
+
+	public static void printLevelWise(BinaryTreeNode<Integer> root) {
+		Queue<BinaryTreeNode<Integer>> childRec= new LinkedList<BinaryTreeNode<Integer>>();
+
+		if(root==null){
+			return;
+		}
+
+		childRec.add(root);
+
+	while(!childRec.isEmpty()){
+		BinaryTreeNode<Integer> now;
+		int recentSize=childRec.size();
+
+		for(int i=0;i<recentSize;i++){
+		     	now=childRec.poll();
+                System.out.print(now.data+" ");
+				if(now.left!=null){
+				childRec.add(now.left);
+				}
+				if(now.right!=null){
+				childRec.add(now.right);
+				}
+		}
+		// Level Ended Here
+		System.out.println();
+	}
+}
+}

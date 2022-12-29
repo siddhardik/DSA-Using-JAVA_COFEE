@@ -1,0 +1,18 @@
+public class Solution {
+
+	public static void insertDuplicateNode(BinaryTreeNode<Integer> root) {
+		//Your code goes here
+		if(root ==null)
+			{
+				return ;
+			}
+
+			BinaryTreeNode<Integer> temp= root.left;
+			BinaryTreeNode<Integer> duplicatNode= new BinaryTreeNode<>(root.data);
+			root.left= duplicatNode;
+			duplicatNode.left=temp;
+
+			 insertDuplicateNode (duplicatNode.left);
+			 insertDuplicateNode(root.right);
+}
+}

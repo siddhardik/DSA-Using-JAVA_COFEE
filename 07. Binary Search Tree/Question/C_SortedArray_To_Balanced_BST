@@ -1,0 +1,22 @@
+public class Solution {
+
+	public static BinaryTreeNode<Integer>  SortedArrayToBSTHelper( int arr[],int start, int end){
+		if(start>end){
+			return null;
+		}
+
+		if(start ==end){
+			BinaryTreeNode<Integer> newNode = new BinaryTreeNode<>(arr[start]);
+			return newNode;
+		}
+		
+		int mid =start + (end-start)/2;
+		BinaryTreeNode<Integer> newNode = new BinaryTreeNode<>(arr[mid]);
+		newNode.left =SortedArrayToBSTHelper (arr,start,mid-1);
+		newNode.right=SortedArrayToBSTHelper(arr,mid+1,end);
+		return newNode;
+	}
+		public static BinaryTreeNode<Integer> SortedArrayToBST(int[] arr, int n){
+			return SortedArrayToBSTHelper(arr,0,n-1);
+		}
+	}

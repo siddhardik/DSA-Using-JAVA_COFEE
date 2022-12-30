@@ -1,0 +1,6 @@
+All node's Value  Of root's Left Side Should be less than than the Root's value
+
+root's value<= ALl Rights Value
+
+Searh in BST TC= > O(h)  Where h is the height of the binary tree  
+

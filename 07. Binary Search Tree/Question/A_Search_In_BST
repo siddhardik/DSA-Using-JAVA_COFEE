@@ -1,0 +1,29 @@
+	/*
+	 * Binary Tree Node class
+	 * 
+	 * class BinaryTreeNode<T> { T data; BinaryTreeNode<T> left; BinaryTreeNode<T> right;
+	 * 
+	 * public BinaryTreeNode(T data) { this.data = data; } }
+	 */
+public class Solution {
+	public static boolean searchInBST(BinaryTreeNode<Integer> root, int k) {
+		if(root==null){
+			return false;
+		}
+
+		if(root.data == k){
+			return true;
+		}
+
+		if(root.data>k){
+			// Search In Left SubTree
+			return searchInBST(root.left,k);
+		}
+
+		else{
+			// Search In Right SubTree
+		      return 	searchInBST(root.right,k);
+		}
+	}
+
+}

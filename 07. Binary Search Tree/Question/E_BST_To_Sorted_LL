@@ -1,0 +1,40 @@
+   public static LinkedListNode<Integer> constructLinkedList(BinaryTreeNode<Integer> root){
+       
+        Pair ans=helper(root);
+        return ans.head;}
+    public static Pair helper(BinaryTreeNode<Integer> root){
+        if(root==null)
+        {
+            Pair output=new Pair();
+            output.head=null;
+            output.tail=null;
+            return output;
+        }
+        Pair lefttree=helper(root.left);
+        LinkedListNode<Integer> newNode=new LinkedListNode<>(root.data);
+        Pair righttree=helper(root.right);
+        Pair output=new Pair();
+       if(lefttree.head!=null)
+       {
+           output.head=lefttree.head;
+           lefttree.tail.next=newNode;
+        
+       }
+        else {
+            output.head=newNode;
+        }
+    newNode.next=righttree.head;
+        if(righttree.head==null)
+        {
+            output.tail=newNode;
+            
+        }
+        else{
+            output.tail=righttree.tail;
+        }
+        return output;
+}}
+class Pair{
+    LinkedListNode<Integer> head;
+    LinkedListNode<Integer> tail;
+}

@@ -1,0 +1,25 @@
+	public static ArrayList<Integer> getPath(BinaryTreeNode<Integer> root, int data){
+		if(root==null){
+			return null;
+		}
+        
+		ArrayList<Integer> ans =new ArrayList<>();
+		if(data==root.data){
+               ans.add(root.data);
+			   return ans;
+		}
+		// Search On Left Side 
+		ans=getPath(root.left,data);
+		if(ans!=null){
+			ans.add(root.data);
+			return ans;
+		}
+       // Search on right Side
+	   ans=getPath(root.right,data);
+	   if(ans!=null){
+		   	ans.add(root.data);
+		   return ans;
+	   }
+	   return null;
+	}
+}

@@ -1,0 +1,78 @@
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Solution {
+	/*
+	 * BinaryTreeNode class
+	 * 
+	 * class BinaryTreeNode<T> 
+	 * { 
+	 * 		T data; 
+	 * 		BinaryTreeNode<T> left; 
+	 * 		BinaryTreeNode<T> right;
+	 *		public BinaryTreeNode(T data) 
+	 *		{
+	 *  		this.data = data; 
+	 *  	} 
+	 *  }
+	 */
+	/*
+	 * LinkedListNode Class
+	 * class LinkedListNode<T> 
+	 * { 
+	 * 		T data; 
+	 * 		LinkedListNode<T> next;
+	 * 		public LinkedListNode(T data) 	
+	 * 		{
+	 *  		this.data = data; 
+	 *  	} 
+	 *  }
+	 */
+	public static ArrayList<LinkedListNode<Integer>> constructLinkedListForEachLevel(BinaryTreeNode<Integer> root){
+		// Write your code here
+		ArrayList<LinkedListNode<Integer>> ans=new ArrayList<LinkedListNode<Integer>>();
+		Queue<BinaryTreeNode<Integer>> childRec = new LinkedList<BinaryTreeNode<Integer>>();
+
+		if (root == null) {
+			return ans;
+		}
+
+		childRec.add(root);
+
+		while (!childRec.isEmpty()) {
+			BinaryTreeNode<Integer> now;
+			int recentSize = childRec.size();
+		LinkedListNode<Integer> level =null;
+			LinkedListNode<Integer> head = null;
+
+			for (int i = 0; i < recentSize; i++) {
+				now = childRec.poll();
+				// System.out.print(now.data + " ");
+			if (head == null) {
+					LinkedListNode<Integer> newNode = new LinkedListNode<Integer>(now.data);
+					level = newNode;
+					head = newNode;
+				} else {
+					LinkedListNode<Integer> newNode = new LinkedListNode<Integer>(now.data);
+					level.next = newNode;
+					level = level.next;
+				}
+
+				if (now.left != null) {
+					childRec.add(now.left);
+				}
+				if (now.right != null) {
+					childRec.add(now.right);
+				}
+			}
+			// Level Ended Here
+			ans.add(head);
+		
+		}
+		return ans;
+
+	}
+
+}

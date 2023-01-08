@@ -1,0 +1,13 @@
+public  int  totalNodes(TreeNode<T> root){
+    int sum=0;
+    if(root==null){
+        return sum;
+    }
+   sum+=1;
+   System.out.println();
+   for(int i=0;i<root.childRec.size();i++){
+    sum+=totalNodes(root.childRec.get(i));
+   }
+
+   return sum;
+}

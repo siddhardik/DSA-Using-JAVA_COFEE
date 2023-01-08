@@ -1,0 +1,2 @@
+Any node have any number of children => Generic tree 
+Every Nodes Contains a single data and A ArrayList of Childrens' Node.

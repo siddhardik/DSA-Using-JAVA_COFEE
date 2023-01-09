@@ -1,0 +1,23 @@
+public static void printLevelWise(TreeNode<Integer> root){
+		if(root.data==null){
+			return ;
+		}
+		Queue<TreeNode<Integer>> pendingChilds =new LinkedList<TreeNode<Integer>>();
+		pendingChilds.add(root);
+
+		while(!pendingChilds.isEmpty()){
+			int recentSize=pendingChilds.size();
+            for (int j=0;j<recentSize;j++){
+			TreeNode<Integer> now =pendingChilds.poll();
+			System.out.print(now.data +" ");
+
+			for(int i=0;i<now.children.size();i++){
+				pendingChilds.add(now.children.get(i));
+			}
+
+			}
+			// Level End Here 
+			System.out.println();
+		}
+
+	}

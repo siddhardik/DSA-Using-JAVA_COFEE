@@ -3,6 +3,7 @@
          Queue<TreeNode<Integer>> pendingNodes= new LinkedList<>();
         System.out.println("Enter the root data ");
         int rootData= s.nextInt();
+        // When Firts Data is -1
         if(rootData==-1)
             return null;
 

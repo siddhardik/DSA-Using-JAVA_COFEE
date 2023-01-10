@@ -1,0 +1,97 @@
+ //  2nd Approach 
+class Data_node{
+	int num;
+	TreeNode<Integer> nln;     //next Larger Node
+	}
+	
+	
+	public class Solution {
+	
+	/*	TreeNode structure 
+	 * 
+	 * class TreeNode<T> {
+			T data;
+			ArrayList<TreeNode<T>> children;
+	
+			TreeNode(T data){
+				this.data = data;
+				children = new ArrayList<TreeNode<T>>();
+			}
+		}*/
+	
+		public static Data_node findNextLargerNodeHelper(TreeNode<Integer> root,int n,int nextLarge){
+		   
+		   Data_node obj =new Data_node();
+		   obj.num=Integer.MAX_VALUE;
+		   if(root.data>n && root.data<nextLarge){
+			   obj.num=root.data;
+			   nextLarge=root.data;
+			   obj.nln=root;
+	
+		   }
+		  
+		  //Base Case 
+		   if(root.children ==null){
+			   return obj;
+		   }
+	
+		   for(int i=0;i<root.children.size();i++){
+			  Data_node childReply= findNextLargerNodeHelper(root.children.get(i),n,nextLarge);
+				  if(childReply.num<nextLarge && childReply.num>n){
+						  nextLarge=childReply.num;
+						  obj.nln=childReply.nln;
+				  }
+		   }
+	
+		   return obj;
+		   
+		}
+		
+		
+		public static TreeNode<Integer> findNextLargerNode(TreeNode<Integer> root, int n){
+			if(root ==null){
+				return null;
+			}
+			int nl=Integer.MAX_VALUE; // nl = next Large
+			return findNextLargerNodeHelper(root,n,nl).nln;
+			}
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

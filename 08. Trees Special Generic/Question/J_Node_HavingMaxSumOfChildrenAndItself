@@ -1,0 +1,58 @@
+class maxSumNodeReturn{
+		int sum;
+		TreeNode<Integer> an;     // Answer Node
+	}
+public class Solution {
+
+/*	TreeNode structure 
+ * 
+ * class TreeNode<T> {
+		T data;
+		ArrayList<TreeNode<T>> children;
+
+		TreeNode(T data){
+			this.data = data;
+			children = new ArrayList<TreeNode<T>>();
+		}
+	}*/
+	
+
+
+	public static  maxSumNodeReturn maxSumNodeHelper(TreeNode<Integer> root){
+		maxSumNodeReturn reply =new maxSumNodeReturn();
+		if(root.children.size()==0){
+			reply.sum=root.data;
+			reply.an=root;
+			return reply;
+		}
+
+		int sums=root.data;
+		int childSum=Integer.MIN_VALUE;
+		for(int i=0;i<root.children.size();i++){
+			sums+=root.children.get(i).data;
+			maxSumNodeReturn childReply=maxSumNodeHelper(root.children.get(i));
+            if(childReply.sum>childSum){
+				childSum=childReply.sum;
+				reply.sum=childSum;
+				reply.an=childReply.an;
+			}
+		}
+
+		if(sums>reply.sum){
+			reply.an=root;
+			reply.sum=sums;
+		}
+		return reply;
+
+	} 
+	public static TreeNode<Integer> maxSumNode(TreeNode<Integer> root){
+		if(root==null){
+			return null;
+		}
+	    if(root.children.size()==0){
+             return root;
+		}
+
+	    return maxSumNodeHelper(root).an;  
+	}
+}

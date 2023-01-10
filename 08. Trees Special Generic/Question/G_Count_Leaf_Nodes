@@ -1,0 +1,25 @@
+	public static int countLeafNodes(TreeNode<Integer> root){
+     
+	  // base case
+	   if(root.children.size()==0){
+		   return 1;
+	   }
+	   int countLeaf=0;
+	   for(int i=0;i<root.children.size();i++){
+            countLeaf+=countLeafNodes(root.children.get(i));
+	   }
+	   return countLeaf;
+	}
+
+
+    /*	TreeNode structure 
+	 * 
+	 * class TreeNode<T> {
+		T data;
+		ArrayList<TreeNode<T>> children;
+
+		TreeNode(T data){
+			this.data = data;
+			children = new ArrayList<TreeNode<T>>();
+		}
+	}*/

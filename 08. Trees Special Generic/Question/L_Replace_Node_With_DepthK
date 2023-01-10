@@ -1,0 +1,34 @@
+
+	public static void replaceWithDepthValueUtil(TreeNode<Integer> root,int k){
+   
+		root.data =k;
+		if(root.children==null){
+			return ;
+		}
+		for(int i=0;i<root.children.size();i++){
+			replaceWithDepthValueUtil(root.children.get(i),k+1);
+		}
+	}
+	
+	public static void replaceWithDepthValue(TreeNode<Integer> root){
+		 if(root==null){
+			return ;
+		}
+        int k=0;
+		
+		replaceWithDepthValueUtil(root,k);
+		
+	}
+
+    
+        /*	TreeNode structure 
+         * 
+         * class TreeNode<T> {
+                T data;
+                ArrayList<TreeNode<T>> children;
+        
+                TreeNode(T data){
+                    this.data = data;
+                    children = new ArrayList<TreeNode<T>>();
+                }
+            }*/

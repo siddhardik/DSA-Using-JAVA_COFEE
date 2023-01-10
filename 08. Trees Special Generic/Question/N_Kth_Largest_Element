@@ -1,0 +1,69 @@
+
+public class Solution {
+
+/*	TreeNode structure 
+ * 
+ * class TreeNode<T> {
+		T data;
+		ArrayList<TreeNode<T>> children;
+
+		TreeNode(T data){
+			this.data = data;
+			children = new ArrayList<TreeNode<T>>();
+		}
+	}*/
+	public static TreeNode<Integer> search(TreeNode<Integer> root, int num) {
+	if (root == null || root.children == null) {
+		return null;
+	}
+	if (root.data == num) {
+		return root;
+	}
+
+	for (int i = 0; i < root.children.size(); i++) {
+		TreeNode<Integer> ans = search(root.children.get(i), num);
+		if (ans != null) {
+			return ans;
+		}
+	}
+	return null;
+}
+
+static int floor;
+
+public static void updateFloor(TreeNode<Integer> root, int n) {
+	if (root == null || root.children == null) {
+		return;
+	}
+	if (root.data > floor && root.data < n) {
+		floor = root.data;
+	}
+
+	for (TreeNode<Integer> childEle : root.children) {
+		updateFloor(childEle, n);
+	}
+}
+	
+		
+	
+	public static TreeNode<Integer> findSecondLargest(TreeNode<Integer> root){
+      
+	  floor=Integer.MIN_VALUE;
+	  int help=Integer.MAX_VALUE;
+	  for (int i=0;i<2;i++){     
+		//   <k  time
+		  updateFloor(root, help);
+		  if(i<1){
+			  // One Time Less Run <k-1 last time we don't want to update floor to Integer.MIN_VALUE
+		  help=floor;
+		  floor =Integer.MIN_VALUE;
+
+		  }
+	  }
+
+	  return search(root,floor);
+
+	}
+	
+	
+}

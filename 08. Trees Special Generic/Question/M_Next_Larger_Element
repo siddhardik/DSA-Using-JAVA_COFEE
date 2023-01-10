@@ -1,3 +1,68 @@
+// 1st Approach 
+public class Solution {
+
+	/*	TreeNode structure 
+	 * 
+	 * class TreeNode<T> {
+			T data;
+			ArrayList<TreeNode<T>> children;
+	
+			TreeNode(T data){
+				this.data = data;
+				children = new ArrayList<TreeNode<T>>();
+			}
+		}*/
+		public static TreeNode<Integer> search(TreeNode<Integer> root, int num){
+			if(root==null || root.children==null){
+					return null;
+			}
+			if(root.data ==num){
+				return root;
+			}
+	
+			for(int i=0;i<root.children.size();i++){
+				TreeNode<Integer> ans= search(root.children.get(i),num);
+				if(ans!=null){
+					return ans;
+				}
+			}
+		return null;	
+		}
+		static int ceil;
+	
+		public static void updateCeil(TreeNode<Integer> root, int n){
+			if(root==null || root.children==null){
+				return ;
+			}
+			if(root.data<ceil && root.data>n){
+				ceil=root.data;
+			}
+					   
+		 for(TreeNode<Integer> childEle: root.children){
+						   updateCeil(childEle, n);
+					   }
+		}
+		
+		public static TreeNode<Integer> findNextLargerNode(TreeNode<Integer> root, int n){
+			
+			ceil =Integer.MAX_VALUE;   // Smallest Among Largers
+			updateCeil(root,n);
+			if(ceil==Integer.MAX_VALUE){
+				  return null;              // Not Ceil Found  in tree
+			}
+			else{
+				return search(root,ceil);
+			}
+	
+			
+		}
+		
+	} 
+
+
+
+	
+ 
  //  2nd Approach 
 class Data_node{
 	int num;

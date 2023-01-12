@@ -1,0 +1,30 @@
+import java.util.HashMap;
+
+public class Solution {
+
+	public static String uniqueChar(String str){
+		HashMap<Character,Integer> map=new HashMap<>();
+		for(int i=0;i<str.length();i++){
+			map.put(str.charAt(i),1);
+		}
+
+		String ans="";
+		for(int i=0;i<str.length();i++){
+                if(map.containsKey(str.charAt(i))){
+					ans+=str.charAt(i);
+					map.remove(str.charAt(i));
+				}
+		}
+		return ans;
+	}
+}
+
+
+// Sample Input 1 :
+// ababacd
+// Sample Output 1 :
+// abcd
+// Sample Input 2 :
+// abcde
+// Sample Output 2 :
+// abcde

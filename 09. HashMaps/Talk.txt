@@ -1,0 +1,16 @@
+for array key and value Should be integer
+
+but HashMaps Key And Value Can be of Any Type
+HashMaps implementation via linked list delete ,search, getValue  all are o(n) TC
+via BST  o(logn) TC   TreeMap For Ordering 
+Via HashTables implementation o(1) TC .     HashMaps'
+
+Key Pass to Hash Function Its gives some integer.
+Then Compress it %bucket Size   
+then Store Key Value
+
+
+Node of key value  Array of this types of node
+
+but we cannot create a generic array 
+So we should create a arraylist.

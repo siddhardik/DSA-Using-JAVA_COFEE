@@ -1,0 +1,26 @@
+import java.util.HashMap;
+public class Solution {
+
+	public static int lengthOfLongestSubsetWithZeroSum(int arr[]) {
+	  HashMap<Integer,Integer> map=new HashMap<>();  // HashMap Of Sum And Index
+      
+	  // Put Sum Till the Index
+	  map.put(0,-1);
+	  int sum=0;
+	  int longest=0;
+	  for(int i=0;i<arr.length;i++){
+		  sum+=arr[i];
+		  if(map.containsKey(sum)){
+			  int len=i-map.get(sum);   // Current Occur And Previous Occur
+                  if(len>longest) {
+                             longest=len;
+				  }
+				  // Do not put because previous one i s already present
+		  }
+		  else{
+                map.put(sum,i);
+		  }
+	  } 
+	  return longest;
+	}
+}

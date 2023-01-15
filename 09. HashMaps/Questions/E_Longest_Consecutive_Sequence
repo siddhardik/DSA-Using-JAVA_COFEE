@@ -1,0 +1,42 @@
+
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<Integer> longestConsecutiveIncreasingSequence(int[] arr) {
+		HashMap<Integer,Boolean> map =new HashMap<>();
+		for(int val:arr){
+			map.put(val,true);
+		}
+
+		// Which are can not be starting point make them false
+		for(int val:arr){
+			if(map.containsKey(val-1)){
+				map.put(val,false);
+			}
+		}
+
+		int sp=0;   // Starting Point
+		int maxLen=0;   // Max Length of consecutive sequence 
+		for(int val:arr){
+			if(map.get(val)==true){
+                        int tsp=val;  // Temporary Starting Point
+						int tl=1;       // Temporary Lenght Of Sequence
+
+						while(map.containsKey(tsp+tl)){
+							tl++;
+						}
+
+						if(tl>maxLen){
+							sp=tsp;
+							maxLen=tl;
+						}
+			}
+		}
+		ArrayList<Integer> ans=new ArrayList<>();
+		ans.add(sp);
+		ans.add(sp+(maxLen-1));
+
+		return ans;
+    }
+}

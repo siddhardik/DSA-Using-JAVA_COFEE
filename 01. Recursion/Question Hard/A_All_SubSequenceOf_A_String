@@ -1,0 +1,22 @@
+public String[] subsequences(String input) {
+    if(input.length() == 0) {
+       //base case
+       String[] output = new String[1];
+       output[0]= "";
+       return output;
+      }
+    String[] smallOutput = subsequences(input.substring(1));
+    String[] output = new String[smallOutput.length*2];
+
+    for(int i=0; i<smallOutput.length; i++) {
+      output[i] = smallOutput[i];
+    }
+    int index=smallOutput.length;
+
+    for(int i=0; i<smallOutput.length; i++) {
+    output[index+i] = input.charAt(0) + smallOutput[i];
+    }
+    
+    return output;
+
+   }

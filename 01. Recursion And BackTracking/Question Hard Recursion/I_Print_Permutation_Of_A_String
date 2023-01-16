@@ -1,0 +1,22 @@
+public class solution {
+	public static void printPermutation( String input, String sf){
+		if(input.length()==0){
+			System.out.println(sf);
+			return;
+		}
+		for (int i = 0; i < input.length(); i++) {
+			char ch = input.charAt(i);
+			String lp = input.substring(0, i );
+			String rp = input.substring(i + 1);
+			String wcc = lp + rp; // wcc -> without Current Character
+			printPermutation(wcc,sf+ch);
+		}
+
+	}
+
+	public static void permutations(String input){
+			String sf="";
+			printPermutation(input, sf);
+	}
+}
+		

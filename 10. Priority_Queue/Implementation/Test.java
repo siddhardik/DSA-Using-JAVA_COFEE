@@ -30,26 +30,22 @@ private ArrayList<Element<T>> heap;
 
    // Insert Element
    public void insert(T val, int priority){
-         // First Create An Elemnt Object
-        Element<T> e=new Element<>(val,priority);
+    Element<T> e= new Element<> (val, priority);
+    heap.add(e);
+    int childIndex= heap.size()-1;
+    int parentIndex=(childIndex-1)/2;
 
-        // Add Element into the Heap 
-        heap.add(e);
-        
-        // Put it into Correct Position, HeapiFy
-        int childIndex=heap.size()-1;
-        int parentIndex=(childIndex-1) /2;
-          while(!(heap.get(childIndex).priority<heap.get(parentIndex).priority )|| childIndex!=0){
-                   Element<T> temp=heap.get(childIndex);
-                   heap.set(childIndex,heap.get(parentIndex));
-                   heap.set(parentIndex,temp);
-                   childIndex= parentIndex;
-                   parentIndex=(childIndex-1) /2;
-
-          }
-          return;
-     
-
+    while(childIndex>0){
+        if(heap.get(childIndex).priority < heap.get(parentIndex).priority){
+            Element<T> temp= heap.get(childIndex);
+            heap.set(childIndex, heap.get(parentIndex));
+            heap.set(parentIndex, temp);
+            childIndex= parentIndex;
+            parentIndex= (childIndex-1)/2;
+        }else{
+            return;
+        }
+  }
 }
 
   // Remove An Element
@@ -67,7 +63,7 @@ private ArrayList<Element<T>> heap;
     int leftChildIndex= 2*parentIndex+1;
     int rightChildIndex= 2*parentIndex +2;
 
-    while(leftChildIndex<getSize()){
+    while(leftChildIndex<heap.size()){
         int minIndex= parentIndex;
         if(heap.get(leftChildIndex).priority < heap.get(minIndex).priority){
             minIndex= leftChildIndex;
@@ -100,14 +96,21 @@ private ArrayList<Element<T>> heap;
 
 public class Test{
     public static void main(String[] args) throws Exception {
-        System.out.println("VEry Good");
+        // System.out.println("VEry Good");
         Priority_Queue<String> pq= new Priority_Queue<String>();
         pq.insert("abc", 15);
         pq.insert("def", 13);
         pq.insert("fsas", 90);
         pq.insert("fsafsafa", 150);
         pq.insert("xvxzxvssa", 120);
-        System.out.println("Very Good");
+        // System.out.println("Very Good");
+        System.out.println(pq.getMin());
+            pq.removeMin();
+            System.out.println(pq.getMin());
+            pq.removeMin();
+            System.out.println(pq.getMin());
+            pq.removeMin();
+
 
         while(!pq.isEmpty()){
             System.out.println(pq.getMin());

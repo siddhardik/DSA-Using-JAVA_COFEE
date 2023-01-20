@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Solution {
+	public static int PairSum(int[] input, int size) {
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int count=0;
+		for (int i : input) {
+
+			if (map.containsKey(-i)) {
+				for (int j = 0; j < map.get(-i); j++) {
+					count++;
+				}
+
+			}
+
+			if (map.containsKey(i)) {
+				map.put(i, map.get(i) + 1);
+			} else {
+				map.put(i, 1);
+			}
+		}
+		return count;
+          
+		}
+	}

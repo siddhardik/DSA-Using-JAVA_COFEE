@@ -27,3 +27,5 @@ we represent CBT via Array and  and ith index represent parent node and 2*i +1 a
 
  insertion time after insertion compare with its parent , then if not in correct order swap amd
  going upward max height of tree , so time complexity for insertion is O(log n or height )
+
+ If there is n nodes in the binary tree then total no of non leaf nodes is n/2

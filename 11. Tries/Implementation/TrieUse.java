@@ -25,11 +25,12 @@ Trie (){
 }
 
 // Add Word To the Dicstionary
-public void insertWordUtil(TrieNode root,String word){
+private void insertWordUtil(TrieNode root,String word){
    
     // Base case
 if(word.length() == 0) {
     root.isTerminal = true;
+    System.out.println("Inserted Successfully " + root.isTerminal);
     return;
     }
 
@@ -49,8 +50,9 @@ public void insertWord(String word) {
     insertWordUtil(root, word);
     }
 
-public boolean searchUtil(TrieNode root, String word){
+private boolean searchUtil(TrieNode root, String word){
     if(word.length()==0){
+        System.out.println("Search " + root.isTerminal);
         return root.isTerminal;
     }
     int index=word.charAt(0)-'a';
@@ -59,10 +61,8 @@ public boolean searchUtil(TrieNode root, String word){
         return false;
     }
     else{
-        searchUtil(child, word.substring(1));
+        return searchUtil(child, word.substring(1));
     }
-    //No meaning jus to void ErrorMessage
-    return false;
 }
 
 
@@ -71,19 +71,58 @@ public boolean search(String word){
     word=word.toLowerCase();   
     return searchUtil(root, word);
 }
+ private void removeWord(TrieNode root, String word) {
+    // Base case
+    if(word.length() == 0) {
+    root.isTerminal = false;
+    System.out.println("Remove Word Successfully");
+    return;
+    }
+    // Small calculation
+    TrieNode child;
+    int index = word.charAt(0) - 'a';
+    if(root.children[index] != null) {
+    child = root.children[index];
+    }
+    else {
+    // Word not found
+    return;
+    
+    }
+    removeWord(child, word.substring(1));
+   
+    // Removing child Node if it is useless
+    if(child.isTerminal == false) {
+    for(int i = 0; i < 26; i++) {
+    if(child.children[i] != null) {
+    return;
+    }
+    }
+    // delete child
+    root.children[index] = null;
+    }
+    }
+    
 
 // Remove a word from dicstionary
 public void remove (String word){
-
+    word=word.toLowerCase();
+    removeWord(root, word);
 }
 
-public count countWords(){
+public int countWords(){
 return 0;
+}
 }
 
 
 public class TrieUse{
    public static void main(String[] args) {
-    
+    Trie dis=new Trie();
+    dis.insertWord("good");
+    System.out.println(dis.search("good"));
+    dis.insertWord("goodbye");
+    dis.remove("good");
+    System.out.println(dis.search("good"));
    }
 }

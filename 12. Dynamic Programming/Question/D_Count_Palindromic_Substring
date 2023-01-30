@@ -1,0 +1,41 @@
+class Solution {
+    public int countSubstrings(String s) {
+        int count=0;
+        int n=s.length();  // Length Of String
+        boolean dp[][]=new boolean[n][n];
+        // Always Diagonally Traverse with variable gap , g represent Gap
+        for(int g=0;g<n;g++){
+            for(int i=0,j=g;j<n;j++,i++){
+                if(g==0){
+                    // Gap 0 diagonal holds one character String
+                    dp[i][j]=true;
+                    count++;
+                }
+                else if(g==1){
+                    // Gap One Element holds Two Character String
+                    if(s.charAt(i)==s.charAt(j)){
+                        dp[i][j]=true;
+                        count++;
+                    }
+                    else{
+                        dp[i][j]=false;
+                    }
+                }
+                    else{
+                        // Gap is More Than One
+                        if(s.charAt(i)==s.charAt(j) && dp[i+1][j-1]){
+                        dp[i][j]=true;
+                        count++;
+                    }
+                    else{
+                        dp[i][j]=false;
+                    }
+                    }
+                }
+
+            }
+        return count;
+        }
+
+    
+}

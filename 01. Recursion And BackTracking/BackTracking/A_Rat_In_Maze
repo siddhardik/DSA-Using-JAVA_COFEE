@@ -1,69 +1,47 @@
-
 public class Solution {
-	public static boolean ratInAMazeUtil(int[][] maze, int[][] track,int row,int col){
-       if(row== maze.length-1 && col==maze[0].length-1){
-		   return true;
-	   }
-	   // Go Upward
-	   if(row-1>=0){
-		   if(maze[row-1][col]!=0 && track[row-1][col]!=1){
-			   track[row-1][col]=1; // Mark AS Tracking , Visited
-               if(ratInAMazeUtil(maze,track,row-1,col)){
-                   return true;
-			   }
-			   else{
-				   	track[row - 1][col] = 0; // Mark AS UnTracking , UnVisited
-			   }
-
-		   }
-	   }
-
-	   	// Go Right
-		if (col+ 1 < maze[0].length) {
-			if (maze[row ][col+1] != 0 && track[row][col+1] != 1) {
-				track[row][col+1] = 1; // Mark AS Tracking , Visited
-				if (ratInAMazeUtil(maze, track, row, col+1)) {
-					return true;
-				} else {
-					track[row ][col+1] = 0; // Mark AS UnTracking , UnVisited
-				}
-
-			}
-		}
-
-		// Go Downward
-		if (row + 1 < maze.length) {
-			if (maze[row + 1][col] != 0 && track[row +1][col] != 1) {
-				track[row + 1][col] = 1; // Mark AS Tracking , Visited
-				if (ratInAMazeUtil(maze, track, row + 1, col)) {
-					return true;
-				} else {
-					track[row + 1][col] = 0; // Mark AS UnTracking , UnVisited
-				}
-
-			}
-		}
-       
-	   // Go Left
-	   	if (col - 1 >=0) {
-			if (maze[row][col - 1] != 0 && track[row][col - 1] != 1) {
-				track[row][col - 1] = 1; // Mark AS Tracking , Visited
-				if (ratInAMazeUtil(maze, track, row, col - 1)) {
-					return true;
-				} else {
-					track[row][col - 1] = 0; // Mark AS UnTracking , UnVisited
-				}
-
-			}
-		}
-	return false;
-
-	}
 
 	public static boolean ratInAMaze(int maze[][]){
-        int track[][] =new int[maze.length][maze[0].length];
-		int currentRow=0;
-		int currentColumn =0;
-		return ratInAMazeUtil(maze,track,currentRow,currentColumn);
+
+		/*Your class should be named Solution. 
+		*Don't write main().
+	 	*Don't take input, it is passed as function argument.
+	 	*Don't print output.
+	 	*Taking input and printing output is handled automatically.
+		*/ 
+
+        int n = maze.length;
+        int path[][] = new int[n][n];
+         return solveMaze(maze, 0, 0, path);
+	}
+       public static boolean solveMaze(int[][] maze, int i, int j, int[][] path) {
+
+        if (i < 0 || i >= maze.length || j < 0 || j >= maze.length || maze[i][j] == 0 || path[i][j] == 1) {
+            return false;
+        }
+
+        path[i][j] = 1;
+
+        if (i == maze.length - 1 && j == maze.length - 1) {
+
+            return true;
+        }
+
+           
+        if (solveMaze(maze, i - 1, j, path)) {
+            return true;
+        }
+
+        if (solveMaze(maze, i, j + 1, path)) {
+            return true;
+        }
+
+        if (solveMaze(maze, i + 1, j, path)) {
+            return true;
+        }
+
+        if (solveMaze(maze, i, j - 1, path)) {
+            return true;
+        }
+        return false;
 	}
 }

@@ -1,0 +1,21 @@
+public class Solution {
+
+	public static int countMinStepsToOne(int n) {
+	    int dpSteps[] = new int[n + 1];
+        for (int i = 2; i <= n; i++) {
+            int result1, result2 = Integer.MAX_VALUE, result3 = Integer.MAX_VALUE;
+            result1 = dpSteps[i - 1];
+            // result1 is the dpSteps of back element
+            if (i % 2 == 0) {
+                result2 = dpSteps[i / 2];
+            }
+            if (i % 3 == 0) {
+                result3 = dpSteps[i / 3];
+            }
+            dpSteps[i] = 1 + Math.min(result1, Math.min(result2, result3));
+        }
+        return dpSteps[n];
+
+	}
+
+}

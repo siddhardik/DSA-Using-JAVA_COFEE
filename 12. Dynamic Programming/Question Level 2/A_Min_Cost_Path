@@ -1,0 +1,48 @@
+import java.util.Arrays;
+public class Solution {
+
+	public static int minCostPathHelper(int[][] input,int[][] dp, int row,int col){
+		if(row ==input.length-1 && col ==input[0].length-1){
+			dp[row][col]=input[row][col];
+			return input[row][col];
+		}
+		if(dp[row][col]!=-1){
+			// When value already Calculated
+			return dp[row][col];
+		}
+	    
+		int ans1=Integer.MAX_VALUE;
+		int ans2=Integer.MAX_VALUE;
+		int ans3=Integer.MAX_VALUE;
+
+		// Go Forward
+		if(col+1<input[0].length){
+			ans1= input[row][col] + minCostPathHelper(input,dp,row,col+1);
+			dp[row][col]=ans1;
+		}
+
+		// Go Downward
+		if(row+1<input.length){
+			ans2= input[row][col] + minCostPathHelper(input,dp,row+1,col);
+			dp[row][col]=ans2;
+		}
+
+        // Go Diagonal
+		if(row+1<input.length && col+1<input[0].length ){
+			ans3=input[row][col] + minCostPathHelper(input,dp,row+1,col+1);
+			dp[row][col]=ans3;
+		}
+
+		return  Math.min(ans1, Math.min(ans2,ans3));
+	}
+
+	public static int minCostPath(int[][] input) {
+		int[][] dp=new int[input.length][input[0].length];
+		for (int [] row: dp){
+
+         Arrays.fill(row, -1);
+		}
+		int row=0,col=0;   // Current Row Col
+		return minCostPathHelper(input,dp,row,col);
+	}
+}

@@ -1,0 +1,38 @@
+import java.util.Arrays;
+public class Solution {
+	public static int lcsHelp(String s, String t,int i,int j,int[][] dp ) {
+		if(i==s.length()  || j==t.length()){
+			return 0;
+		}
+
+		if(s.charAt(i)==t.charAt(j)){
+			if(dp[i][j]==-1){
+				// Not Calculated Till Now
+				dp[i][j]=1+ lcsHelp(s,t,i+1,j+1,dp);
+			}
+		 return dp[i][j];
+		}
+		else{
+			if (dp[i][j] == -1) {
+				// Not Calculated Till Now
+				dp[i][j] = Math.max(lcsHelp(s, t,i+1,j,dp), lcsHelp(s, t,i,j+1,dp));
+			}
+			return dp[i][j];
+		}
+    }
+
+	public static int lcs(String s, String t) {
+		//Your code goes here
+		int i=0;
+		int j=0;
+
+		int [][] dp=new int[s.length()][t.length()];
+		for(int[] row:dp){
+			Arrays.fill(row,-1);
+		}
+		return lcsHelp(s, t, i, j,dp);
+
+
+    }
+
+}

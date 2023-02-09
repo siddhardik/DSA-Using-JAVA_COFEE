@@ -1,0 +1,36 @@
+import java.util.HashMap;
+class Solution {
+    public long distinctNames(String[] ideas) {
+        int ansCount=0;
+        HashMap<String,Integer> map=new HashMap<>();
+        int n=ideas.length;
+        for(int i=0;i<n;i++){
+            if(map.containsKey(ideas[i])){
+                // Key Already Present
+            }
+            else{
+                map.put(ideas[i],1);
+            }
+        }
+
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                StringBuffer temp1=new StringBuffer(ideas[i]);
+                StringBuffer temp2=new StringBuffer(ideas[j]);
+                // Swap First Character Of Two Strings
+                String f= ""+temp1.charAt(0);
+                temp1.replace(0,1,(""+temp2.charAt(0)));
+                temp2.replace(0,1,f);
+
+                if(map.containsKey(temp1.toString())==false && 
+                map.containsKey(temp2.toString())==false ){
+                    ansCount+=2;
+                }
+            }
+        }
+        return ansCount;
+
+    }
+}
+
+// TLE Some Case in LeetCode 

@@ -1,0 +1,23 @@
+public static void dfs(int[][] adjMatrix,boolean visited[],int currentVertex){
+        // Mark true as visited
+        visited[currentVertex]=true;
+
+        //Print The Vertex
+        System.out.println(currentVertex +" ");
+
+        // Go For Neighbourhood one by one
+        for(int i=0;i<adjMatrix.length;i++){
+            // Check  this can be Called? Should Edge Exist and Not Visisted I
+            if(adjMatrix[currentVertex][i]==1 && visited[i]==false){
+                dfs(adjMatrix,visited,i);
+            }
+        }
+
+    }
+
+    public static void  dfTraversal(int[][] adjMatrix){
+        boolean visited[]=new boolean[adjMatrix.length];
+        int currentVertex=0;
+        dfs(adjMatrix,visited,currentVertex);
+
+    }

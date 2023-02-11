@@ -1,5 +1,37 @@
 import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
 public class Graphs{
+    public static void bfs(int[][] adjMatrix,boolean[] visited,int currentVertex,Queue<Integer> q)
+{
+  
+
+   q.add(currentVertex);
+   // After adding into Queue marked as Visited
+   visited[currentVertex]=true;
+   while(!q.isEmpty()){
+     currentVertex = q.poll();
+     // Print the Current Vertex
+    System.out.println(currentVertex+" ");
+    for(int i=0;i<adjMatrix.length;i++){
+        if(adjMatrix[currentVertex][i]== 1 && visited[i]==false){
+            q.add(i);
+            visited[currentVertex]=true;
+        }
+    }
+
+   }
+
+}   
+
+public static void bfTraversal(int[][] adjMatrix){
+     Queue<Integer> queue=new LinkedList<>();
+     boolean visited[]=new boolean[adjMatrix.length];
+     int currentVertex=0;
+        bfs(adjMatrix,visited,currentVertex,queue);
+    }
+
+
     public static void dfs(int[][] adjMatrix,boolean visited[],int currentVertex){
         // Mark true as visited
         visited[currentVertex]=true;
@@ -53,6 +85,7 @@ public class Graphs{
     System.out.println();
    }
    dfTraversal(adjMatrix);
+   bfTraversal(adjMatrix);
 
     
 

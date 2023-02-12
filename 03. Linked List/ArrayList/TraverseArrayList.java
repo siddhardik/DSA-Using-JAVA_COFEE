@@ -15,7 +15,10 @@ public class TraverseArrayList {
 
 
         }
-  }
+
+        // Convert ArrayList To Int[] Array
+        int[] ansArray = list.stream().mapToInt(Integer::intValue).toArray();
+  
 }
 /*
 17

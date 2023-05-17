@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc=new Scanner(System.in);
+		int Osum=0;
+		int Esum=0;
+
+		int n=sc.nextInt();
+        int div=10;
+		while(n>0){
+			if((n%div)%2==0){
+				Esum=Esum+(n%div);
+			}
+			else{
+                Osum=Osum+(n%div);
+			}
+			n=n/10;
+		}
+
+		System.out.print(Esum + " " + Osum);
+
+	}
+}

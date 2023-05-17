@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc= new Scanner(System.in);
+		int n=sc.nextInt();
+        int mul=1;
+		int dec=0;
+		while(n!=0){
+			int rem=n%10;
+			if(rem!=0){
+
+			dec=dec+ mul;
+			}
+			n/=10;
+			mul*=2;
+
+
+
+		}
+		System.out.println(dec);
+
+	}
+}

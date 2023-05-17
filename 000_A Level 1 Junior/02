@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Solution {
+    
+    public static void main(String[] args) {
+        // Write your code here
+        Scanner sc=new Scanner(System.in);
+        char ch =sc.next().charAt(0);
+
+        int a=ch;  // a is ASCII Value of Character 
+
+        if(a>=97 && a<=122){
+           System.out.println("0");  // For LowerCase
+        }
+        else if(a>=65 && a<=90){
+            System.out.println("1");  // For UpperCase
+        }
+        else{
+            System.out.println("-1");  // For Other Characters
+        }
+
+    }
+}

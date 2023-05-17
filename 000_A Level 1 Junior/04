@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc=new Scanner(System.in);
+		int basic=sc.nextInt();
+		char g=sc.next().charAt(0);
+
+		double ts=0;
+	if(g=='A'){
+		ts=basic + (1.0 *basic)/5 +  (1.0 *basic)/2 +1700 - (11.00*basic)/100;
+		System.out.print(Math.round(ts));
+	}
+	else if(g=='B'){
+		ts=basic + (1.0*basic)/5 + (1.0*basic)/2 +1500 - (11.00 *basic)/100;
+		System.out.println(Math.round(ts));
+	}
+
+	else{
+		ts = basic + (1.0* basic)/5 + (1.0 * basic)/2 +1300 -(11.00*basic)/100;
+		System.out.println(Math.round(ts));
+			}
+
+
+
+
+	}
+}

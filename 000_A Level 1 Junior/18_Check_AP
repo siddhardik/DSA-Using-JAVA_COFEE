@@ -1,0 +1,44 @@
+
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		boolean isAp=true;
+	    int f=0;
+		int s=0;
+		int diff=0;
+		if(n>=1){
+
+			f=sc.nextInt();  // First Member
+		}
+		if(n>=2){
+
+			 s=sc.nextInt();  //Second Member
+			 diff=s-f;		
+		}
+
+		if(n>2){
+
+			int i=3;
+			while(i<=n){
+					int now=sc.nextInt();
+					f=s;
+					s=now;
+
+					if((s-f)==diff){
+	
+					}
+					else{
+						isAp=false;
+					}
+					i++;
+			}
+		}
+		System.out.println(isAp);
+
+	}
+}
+

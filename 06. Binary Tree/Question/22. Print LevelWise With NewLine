@@ -16,6 +16,41 @@ public class Solution {
 		BinaryTreeNode<Integer> now;
 		int recentSize=childRec.size();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
 		for(int i=0;i<recentSize;i++){
 		     	now=childRec.poll();
                 System.out.print(now.data+" ");

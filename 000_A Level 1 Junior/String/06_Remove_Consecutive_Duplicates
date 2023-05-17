@@ -1,0 +1,27 @@
+
+public class Solution {
+
+	public static String removeConsecutiveDuplicates(String str) {
+		//Your code goes here
+		int n=str.length();
+		if(n==0){
+			return "";
+		}
+		
+		char ch=str.charAt(0);
+		String ans="";
+		ans+=ch;
+        int anslen=1;
+		for(int i=1;i<n;i++){
+			if(str.charAt(i)!=ans.charAt(anslen-1)){
+                      anslen+=1;
+					  ans+=str.charAt(i);
+
+			}
+			
+		}
+		return ans;
+		
+	}
+
+}

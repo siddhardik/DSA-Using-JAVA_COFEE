@@ -1,0 +1,47 @@
+
+public class Solution {
+
+	public static boolean isPermutation(String str1, String str2) {
+		//Your code goes here
+		/*
+        String small="";
+		String big="";
+		if(str1.length() <=str2.length()){
+		  small=str1;
+		  big=str2;
+			
+		}
+		else{
+			small=str2;
+			big=str1;
+		}
+		*/
+
+		int n=str1.length();
+		int m=str2.length();
+		if(n==0 && m==0){
+			return true;
+		}
+		int arr[]=new int[26];
+		int arr2[]=new int[26];
+
+		for(int i=0;i<n;i++){
+			arr[str1.charAt(i)-'a']+=1;
+		}
+
+		for(int i=0;i<m;i++){
+			arr2[str2.charAt(i)-'a']+=1;
+		}
+
+		for(int i=0;i<26;i++){
+			if(arr[i]==arr2[i]){
+                
+			}
+			else{
+				return false;
+			}
+		}
+		return true;
+	}
+
+}

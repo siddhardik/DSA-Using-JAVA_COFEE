@@ -1,0 +1,17 @@
+
+public class Solution {
+
+	public static int countWords(String str) {	
+		//Your code goes here
+		if(str.length()==0){
+			return 0;
+		}
+		else{
+
+		String words[]=str.split(" ");
+		return words.length;
+		}
+
+	}
+
+}

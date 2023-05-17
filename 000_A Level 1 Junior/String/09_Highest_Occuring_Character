@@ -1,0 +1,34 @@
+
+public class Solution {
+
+	public static char highestOccuringChar(String str) {
+	int n=str.length();
+		int MaxOccur=-1;  // MaxOccur
+	
+		int arr[]=new int[26];
+		for(int i=0;i<n;i++){
+			char ch=str.charAt(i);
+			int index=ch-'a';  // Find Char 
+			arr[index]++;   // Increment the char's count
+			if(arr[index]>MaxOccur){
+				MaxOccur=arr[index];
+				}
+           }
+    int j=-1;
+	  for(int i=0;i<n;i++){
+		  if(arr[str.charAt(i)-'a']==MaxOccur){
+			j=i;
+			break;
+			  
+			  
+		  }
+	  }
+
+	  char ch=str.charAt(j);
+	  return str.charAt(j);
+	
+	
+
+	}
+
+}

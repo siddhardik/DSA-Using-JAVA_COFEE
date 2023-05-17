@@ -1,0 +1,53 @@
+
+public class Solution {
+
+	public static String reverseEachWord(String str) {
+		/*
+		String ans="";
+		//Calculate the Length of The String 
+		int n=str.length();
+		if(n==0){
+			return ans;
+		}
+		if(n==1){
+			return str;
+		}
+		int start=0;
+		int end=0;
+        
+		int i=0;
+		for(;i<n;i++){
+			if(str.charAt(i)==' '){
+				//Go BackWord And Add Character
+				end=i-1;
+				for(int j=end;j>=start ;j--){
+					ans+=str.charAt(j);
+				}
+				ans+=' ';
+				start=i+1;
+			}
+
+		}
+		if(i==n){
+
+		for(int j=n-1;j>=start ;j--){
+					ans+=str.charAt(j);
+				}
+		}
+
+
+
+		return ans;
+		*/
+
+		String words[] = str.split("\\s");
+		String reverseWord = "";
+		for (String w : words) {
+			StringBuilder sb = new StringBuilder(w);
+			sb.reverse();
+			reverseWord += sb.toString() + " ";
+		}
+		return reverseWord.trim();
+	}
+
+}

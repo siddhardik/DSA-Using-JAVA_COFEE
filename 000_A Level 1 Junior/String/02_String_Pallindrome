@@ -1,0 +1,29 @@
+
+public class Solution {
+
+	public static boolean isPalindrome(String str) {
+		//Your code goes here
+		int n=str.length();
+		if(n==0){
+			return false;
+		}
+
+		else{
+			int left=0;
+			int right=n-1;
+
+			while(left<right){
+				if(str.charAt(left++)==str.charAt(right--)){
+
+				}
+				else{
+					return false;
+				}
+			}
+
+		}
+		return true;
+
+	}
+
+}

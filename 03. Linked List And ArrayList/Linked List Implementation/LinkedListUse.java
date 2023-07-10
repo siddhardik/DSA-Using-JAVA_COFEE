@@ -1,4 +1,21 @@
 import java.util.Scanner;
+
+// use Generics
+ class Node<T>{
+    T data;
+    Node<T> next;
+
+    // Constructor
+
+    Node(T data){
+        this.data=data;
+        next=null;  // Or this.next=null;  by default any ref var is null
+
+    }
+
+    
+}
+
 public class LinkedListUse {
     // Print the linked list
     public static void PrintLinkedList(Node<Integer> node) {

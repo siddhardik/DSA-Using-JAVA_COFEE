@@ -18,8 +18,15 @@ public class TraverseArrayList {
 
         // Convert ArrayList To Int[] Array
         int[] ansArray = list.stream().mapToInt(Integer::intValue).toArray();
-  
+       
+        for(int i:ansArray){
+            System.out.println(i); // Enhanced for loop For-Each Loop
+
+
+        }
 }
+} 
+
 /*
 17
 28

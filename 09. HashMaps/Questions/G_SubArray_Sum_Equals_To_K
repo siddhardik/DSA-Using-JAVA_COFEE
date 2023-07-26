@@ -22,6 +22,9 @@ class Solution {
                 count+=map.get(sumNeed);
             }
             map.put(sum,map.getOrDefault(sum,0)+1);
+            // map.getOrDefault(sum,0) returns 0 if key "sum" is not present otherwise
+            //  returns its frequency 
+
         }
         
         return count;

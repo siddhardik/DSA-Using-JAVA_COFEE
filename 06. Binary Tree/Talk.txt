@@ -22,7 +22,7 @@ Otherwise it is called generic Tree.
 
    Terminologies =
 
- ancestor - Path From root to this/leaf node .. All nodes are called as Ancestor of this/leaf node.
+ ancestors - Path From root to this/leaf node .. All nodes are called as Ancestor of this/leaf node.
 
 
 Depth is a property of every node that means how much  far a node from root node
@@ -30,3 +30,20 @@ Depth is a property of every node that means how much  far a node from root node
 Balanced Tree 
 | heightOf Right Sub Tree - Height of Left Sub Tree | <=1   for every Node
 Then We call it Balanced tree
+
+
+
+        5
+      /   \
+   10      15
+  /  \   /   \
+20   25  30   35
+          \
+           45
+
+
+The number of edges in the path from root node to the node 25 is 2.
+ Therefore, depth of the node 25 is 2.
+
+ The number of edges in the longest path connecting the node 25 to any leaf node is 1. 
+ Therefore, height of the node 25 is 1.

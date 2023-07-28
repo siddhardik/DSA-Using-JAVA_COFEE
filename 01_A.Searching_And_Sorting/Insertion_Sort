@@ -1,0 +1,44 @@
+
+// ======================================================================
+
+      public static void insertion_Sort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+    /*
+     * 
+     * Time Complexity :
+     * O(n2)
+     * 
+     * We are just making two loops. What do you think will be the worst case for
+     * Insertion sort?
+     * Yes, when all the numbers are sorted in reverse (in descending order). Then
+     * for each
+     * iteration of n-1 we will have to perform 1+ 2 + 3 + ... swaps. So in total,
+     * this is an Arithmetic Progression whose result is n*(n+1)/2 equivalent to n2.
+     * 
+     * Worst Case: O(n2)
+     * 
+     * Best Case: O(n) [We discussed this previously]
+     * 
+     * SPACE COMPLEXITY :
+     * O(1)
+     * 
+     * We are working with constant auxiliary space because the only main operation
+     * is a swap.
+     * 
+     * 
+     * It is stable and in-Place Algorithm
+     */
+
+    //  ===========================================================================
+   

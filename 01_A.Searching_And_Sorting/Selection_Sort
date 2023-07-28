@@ -1,0 +1,38 @@
+
+// ============================================================
+     public static void selection_Sort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            // For 5 elements in arr 0 1 2 3
+            // 01 02 03 04[1st] 12 13 14 [2nd] 23 24 [3rd] 34 [4th] inner Iteration
+            int minidx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minidx]) {
+                    minidx = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[minidx];
+            arr[minidx] = temp;
+        }
+    }
+
+    /*
+     * Is selection sort a stable algorithm?
+     * Selection Sort is not a stable sorting algorithm,
+     * because it swaps non-adjacent elements. The most pertinent প্রাসঙ্গিক
+     * example being: Given [2, 2, 1], the '2' values will not retain their initial
+      order in the output sorted array.
+     
+     
+     * But It is an in-Place Algorithm.
+     * 
+     * Worst complexity: n^2
+     * Average complexity: n^2
+     * Best complexity: n^2
+     * Space complexity: 1
+     */
+
+    //  =================================================================
+
+

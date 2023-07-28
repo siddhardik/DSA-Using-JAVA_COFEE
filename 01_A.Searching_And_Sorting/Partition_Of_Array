@@ -1,0 +1,40 @@
+public static int partition(int[] arr, int pivot) {
+  // 0 to j-1  <= pivot 
+  // j to i-1 > pivot 
+  // i to end Unknown 
+    int i = 0;
+    int j = 0;
+    while (i < arr.length) {
+      if (arr[i] > pivot)
+      {
+        i++;
+        // Decrease unknown Area And Increase the number of  >pivot element 
+      }
+      else if (arr[i] <= pivot)
+      {
+        // swap(arr, i, j);
+        int temp = arr[i];
+        arr[j]=arr[i];
+        arr[j]=temp;
+
+        i++;
+        j++;
+        // Decrease unknown Area And Increase the number of <= pivot element 
+      }
+    }
+
+    return j-1;  // j-1 is the pivot index 
+  }
+
+  
+
+  public static void quick_Sort(int arr[],int low,int hi){
+    if(lo>=hi){
+      return ;
+    }
+
+    int pivot =arr[hi];
+    int pivotIndex = partition(arr, pivot,lo,hi);
+    quick_Sort(arr,lo,pivotIndex-1);
+    quick_Sort(arr,pivotIndex+1,hi);
+  }

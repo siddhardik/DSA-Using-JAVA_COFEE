@@ -1,0 +1,67 @@
+public static int[] mergeSort(int[] arr, int lo, int hi) {
+    if(lo == hi){
+      int[] bans = new int[1];
+      bans[0] = arr[lo];
+      return bans;
+    }
+    int mid = (lo + hi) / 2;
+    int[] lsa = mergeSort(arr,lo,mid);
+    int[] rsa = mergeSort(arr,mid + 1,hi);
+    int[] ans = mergeTwoSortedArrays(lsa,rsa);
+    return ans;
+  }
+ 
+ public static int[] mergeTwoSortedArrays(int[] a, int[] b) {
+    // write your code here
+    int alen = a.length;
+    int blen = b.length;
+
+    int[] res = new int[alen + blen];
+
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    // when there are elements in both the array
+    while (i < alen && j < blen) {
+      if (a[i] < b[j]) {
+        res[k] = a[i];
+        i++;
+      } else {
+        // >=
+        res[k] = b[j];
+        j++;
+      }
+      k++;
+    }
+
+
+    while (i < alen) {
+      res[k] = a[i];
+      i++;
+      k++;
+    }
+
+    while (j < blen) {
+      res[k] = b[j];
+      j++;
+      k++;
+    }
+
+    return res;
+  }
+
+
+
+/*
+Time Complexity :
+O (nlogn)
+
+Since merge sort keeps dividing the array into two halves and taking linear time to merge these two halves hence the time complexity is of order nlogn.
+
+SPACE COMPLEXITY :
+O (n)
+
+Since 1D arrays are used to store numbers, therefore the space complexity is linear.
+ */
+  

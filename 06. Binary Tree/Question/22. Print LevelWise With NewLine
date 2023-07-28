@@ -15,43 +15,7 @@ public class Solution {
 	while(!childRec.isEmpty()){
 		BinaryTreeNode<Integer> now;
 		int recentSize=childRec.size();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-		for(int i=0;i<recentSize;i++){
+        for(int i=0;i<recentSize;i++){
 		     	now=childRec.poll();
                 System.out.print(now.data+" ");
 				if(now.left!=null){

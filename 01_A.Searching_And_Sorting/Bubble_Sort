@@ -1,0 +1,47 @@
+
+
+// ==========================================
+    public static void bubble_Sort(int[] arr) {
+        // After First Iteration big value will be placed at the end.
+        for (int itr = 1; itr < arr.length; itr++) {
+            // For Example  5 elements array  total outer loop run 4 times 
+            // 01 12 23 34 1st 01 12 23 2nd 01 12 23 3rd 01 12 4th inner iteration
+            for (int j = 0; j < arr.length - itr; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+
+    }
+    /* 
+    
+     Is Bubble Sort Stable? Yes, Bubble Sort is a stable sorting algorithm. 
+     We swap elements only when A is less than B.
+     If A is equal to B, we do not swap them, 
+     hence relative order between equal elements will be maintained.
+
+     Inplace Algo Also Extra Space o(1)  which is less than  o(logn)
+     
+
+    Time Complexity :
+    Worst Case Time Complexity: O(n*n). Worst case is when the array is in reverse order.
+
+    Best Case Time Complexity: O(n) Best case is when the input array is already sorted.
+
+    Average Case Time Complexity: O(n*n). The inner loop does O(n) work on each iteration, and the outer loop runs for O(n) iterations, so the total work is O(n 2).
+
+    SPACE COMPLEXITY :
+    Auxiliary Space: O(1), as no extra space is used.
+
+   */
+
+    // ====================================================
+
+
+
+
+
+   

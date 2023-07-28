@@ -1,0 +1,32 @@
+class Solution {
+
+    public static int binary_Search_Rec_Help(int[] arr, int data,int low,int high){
+   if(low>high){
+        return -1;
+   }
+    int mid =low + (high-low)/2;
+
+        if(data>arr[mid]){
+            low=mid+1;
+        }
+        else if(data<arr[mid]){
+            high=mid-1;
+        }
+        else{
+            
+            // When arr[mid] is equal to data
+            return mid; 
+            
+        }
+        return binary_Search_Rec_Help(arr,data,low,high);
+}
+
+
+
+    public int search(int[] nums, int target) {
+    int low=0;
+    int high = nums.length-1;
+    int index=binary_Search_Rec_Help(nums,target,low,high);
+    return index;
+    }
+}

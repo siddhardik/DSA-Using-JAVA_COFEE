@@ -1,0 +1,55 @@
+public static int binary_Search(int[] arr, int data){
+    int low=0;
+    int high = arr.length-1;
+    int index=-1;
+
+    while(low<=high){
+        int mid =low + (high-low)/2;
+
+        if(data>arr[mid]){
+            low=mid+1;
+        }
+        else if(data<arr[mid]){
+            high=mid-1;
+        }
+        else{
+            index=mid;
+            // When arr[mid] is equal to data 
+            break;
+        }
+
+    }
+    return index;
+}
+
+public static int binary_Search_Rec_Help(int[] arr, int data,int low,int high){
+   if(low>high){
+        return -1;
+   }
+    int mid =low + (high-low)/2;
+
+        if(data>arr[mid]){
+            low=mid+1;
+        }
+        else if(data<arr[mid]){
+            high=mid-1;
+        }
+        else{
+            
+            // When arr[mid] is equal to data
+            return mid; 
+            
+        }
+        return binary_Search_Rec_Help(arr,data,low,high);
+}
+
+
+
+
+//Recursive Approache
+public static int binary_Search_Rec(int[] arr, int data){
+    int low=0;
+    int high = arr.length-1;
+    int index=binary_Search_Rec_Help(arr,data,low,high);
+    return index;
+}

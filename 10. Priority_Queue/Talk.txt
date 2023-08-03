@@ -8,7 +8,8 @@ Pririty Queue we can implement via heap easily.
 We can also implement via array,lInked List ,BST,Tree
 HAshmap also.
 
-But Balanced BST is one of good option ,But Address Storing And balnacing maintain is complex.
+But Balanced BST is one of good option ,But Address Storing And balnacing maintain 
+is complex.
 
 We use Heap To implement Priority Queue 
 Heap has two property 1} Complete  Binary Tree  And 2} Heap Order Property 
@@ -17,15 +18,18 @@ Heap has two property 1} Complete  Binary Tree  And 2} Heap Order Property
 
 -> You can't skip Any position
 
-2} Heap Order Property -> For max Heap Max Element/ Max priority's element presents at Root index
+2} Heap Order Property -> For max Heap Max Element/ Max priority's element presents
+ at Root index
 In Min Heap Min Element/ Minnimum priority Element must be at the top
 
 
-we represent CBT via Array and  and ith index represent parent node and 2*i +1 and 2*i +2 
+we represent CBT via Array and  and ith index represent parent node
+ and 2*i +1 and 2*i +2 
  index are represent the child node if ith index's element.
  And get parent (i-1)/2      i represent child node's index
 
- insertion time after insertion compare with its parent , then if not in correct order swap amd
+ insertion time after insertion compare with its parent , then if not in correct order
+  swap amd
  going upward max height of tree , so time complexity for insertion is O(log n or height )
 
  If there is n nodes in the binary tree then total no of non leaf nodes is n/2

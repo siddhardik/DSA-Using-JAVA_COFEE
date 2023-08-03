@@ -17,7 +17,7 @@ public static Tree<Integer> takeinputLevelWise(){
             if(left!=-1){
                     Tree<Integer> leftChild= new Tree<Integer>(left);
                     front.left= leftChild;
-                    pendingChildren.add(leftChild)
+                    pendingChildren.add(leftChild);
             }
 
             System.out.println("Enter right child of "+ front.data);

@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 // Let Consider The Min Priority Queue
 class Priority_Queue_Exception extends Exception {
-    
+   
 }
+
 class Element<T>{
     T val;
     int priority;
